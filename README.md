@@ -1,6 +1,6 @@
-# Tổng hợp những câu hỏi JavaScript
+## Tổng hợp những câu hỏi JavaScript
 
-###### 1. Output là gì?
+### 1. Output là gì?
 
 ```javascript
 var a = (!+[] + [] + ![]);
@@ -25,7 +25,7 @@ console.log(a.length);
 
 ---
 
-###### 2. Output sẽ là gì?
+### 2. Output sẽ là gì?
 
 ```javascript
 for (var i = 0; i < 3; i++) {
