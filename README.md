@@ -1,5 +1,8 @@
 ## Tổng hợp những câu hỏi JavaScript
 
+- Lí thuyết
+- Viêt code
+
 ### 1. Output là gì?
 
 ```javascript
