@@ -1,7 +1,193 @@
-## Tổng hợp những câu hỏi JavaScript
+## Tổng hợp những câu hỏi JavaScript <a id="title"/>
 
-- Lí thuyết
-- Viêt code
+## Lí thuyết
+
+### 1. `scope` trong Javascript là gì ?
+
+```javascript
+
+```
+
+### 2. So sánh sự khác nhau giữa `var | let | const` ?
+
+```javascript
+
+```
+
+### 3. So sánh sự khác nhau giữa `isNaN` và `Number.isNaN` ?
+
+```javascript
+
+```
+
+### 4. So sánh sự khác nhau giữa toán tử `==` và `===` là gì?
+
+```javascript
+
+```
+
+### 5. So sánh sự khác nhau giữa `null` và `undefined` là gì?
+
+```javascript
+
+```
+
+### 6. So sánh sự khác nhau giữa `slice` và `splice` ?
+
+```javascript
+
+```
+
+### 7. So sánh sự khác nhau giữa `Call | Apply | Bind` ?
+
+```javascript
+
+```
+
+### 8. So sánh sự khác nhau giữa `Set | Map | Object` ?
+
+```javascript
+
+```
+
+### 9. `Temporal Dead Zone`  là gì?
+
+```javascript
+
+```
+
+### 10. Hoisting  là gì?
+
+```javascript
+
+```
+
+### 11. Closures là gì?
+
+```javascript
+
+```
+
+### 12. Currying function  là gì?
+
+```javascript
+
+```
+
+### 13. Memoization  là gì?
+
+```javascript
+
+```
+
+### 14. setTimeout  là gì?
+
+```javascript
+
+```
+
+### 15. setInterval  là gì?
+
+```javascript
+
+```
+
+### 16. Callback là gì?
+
+```javascript
+
+```
+
+### 17. Promise là gì?
+
+```javascript
+
+```
+
+### 18. Async/Await là gì?
+
+```javascript
+
+```
+
+### 19. Call stack  là gì?
+
+```javascript
+
+```
+
+### 20. Heap là gì?
+
+```javascript
+
+```
+
+### 21. Event table là gì?
+
+```javascript
+
+```
+
+### 22. Event queue là gì?
+
+```javascript
+
+```
+
+### 23. Microtask queue là gì?
+
+```javascript
+
+```
+
+### 24. Event loop  là gì?
+
+```javascript
+
+```
+
+### 25. `observable` là gì?
+
+```javascript
+
+```
+
+### 26. So sánh `Promise.all | Promise.setted | Promise.race | Promise.any`  là gì?
+
+```javascript
+
+```
+
+### 27. So sánh `cookie | locale Storage | session Storage`  là gì?
+
+```javascript
+
+```
+
+### 28. Service worker là gì?
+
+```javascript
+
+```
+
+### 29. Phân biệt debouncing & throttling ?
+
+```javascript
+
+```
+
+### 30. Có những cách nào để execute các file js từ bên ngoài ?
+
+- `<script>`: Với thẻ script không có thuộc tính gì khác thì trong quá trình phân tích cú pháp `HTML` nếu phải thẻ
+  script, đến lúc này thì quá trình phân tích cú pháp `HTML` sẽ tạm dùng và để tải tệp js, sau đó thực thi luôn tệp js,
+  rồi mới tiếp tục lại quá trình phân tích cú pháp `HTML`.
+- `<script async>`: Tệp `js` được tải xuống song song cùng với quá trình phân tích cú pháp `HTML`. Sau khi hoàn tất tải
+  xuống, tệp js sẽ thực thi, quá trình phân tích cú pháp `HTML` sẽ bị tạm ngừng cho tới khi tệp `js` thưc thi xong, thì
+  mới tiếp tục.
+- `<script defer>`: Tệp `js` được tải xuống song song cùng với quá trình phân tích cú pháp `HTML`. Và chỉ thực thi sau
+  khi quá trình phân tích cú pháp `HTML` hoàn tất.
+
+## Viết mã
 
 ### 1. Output là gì?
 
@@ -10,16 +196,20 @@
     var message = "IIFE";
     console.log(message);
 })();
+
+console.log(message);
 ```
 
 <details><summary><b>Đáp án</b></summary>
 <p>
 
 ```shell
+'IIFE'
 ReferenceError: message is not defined
 ```
 
--  Hàm trên là một IIFE (Immediately Invoked Function Expression), cho phép bạn khai báo một hàm ẩn danh và thực thi nó ngay lập tức. Các biến trong IIFE được bảo vệ khỏi phạm vi toàn cục, giúp tránh xung đột biến.
+- Hàm trên là một IIFE (Immediately Invoked Function Expression), cho phép bạn khai báo một hàm ẩn danh và thực thi nó
+  ngay lập tức. Các biến trong IIFE được bảo vệ khỏi phạm vi toàn cục, giúp tránh xung đột biến.
 - Vì message là một biến cục bộ của hàm, nên nó không tồn tại trong phạm vi toàn cục.
 - Nếu cố gắng truy cập message bên ngoài hàm, sẽ gặp lỗi ReferenceError.
 
@@ -71,7 +261,8 @@ console.log(a);
 undefined
 ```
 
-- Do cơ chế ASI (Automatic Semicolon Insertion), JavaScript tự động thêm dấu chấm phẩy (;) sau từ khóa return. Điều này dẫn đến việc hàm trả về undefined thay vì object `{ message: "hello" }`.
+- Do cơ chế ASI (Automatic Semicolon Insertion), JavaScript tự động thêm dấu chấm phẩy (;) sau từ khóa return. Điều này
+  dẫn đến việc hàm trả về undefined thay vì object `{ message: "hello" }`.
 
 </p>
 </details>
@@ -296,8 +487,10 @@ function say() {
 C: Bye
 ```
 
-- Trong JavaScript, cả khai báo hàm (function declaration) và thân hàm đều được hoisting. Khi có hai hàm cùng tên, hàm được định nghĩa sau cùng sẽ ghi đè lên hàm trước.
-- Hàm say() đầu tiên được ghi vào bộ nhớ. Sau đó, nó bị ghi đè bởi hàm say() thứ hai, nên khi gọi say(), hàm thứ hai được thực thi.
+- Trong JavaScript, cả khai báo hàm (function declaration) và thân hàm đều được hoisting. Khi có hai hàm cùng tên, hàm
+  được định nghĩa sau cùng sẽ ghi đè lên hàm trước.
+- Hàm say() đầu tiên được ghi vào bộ nhớ. Sau đó, nó bị ghi đè bởi hàm say() thứ hai, nên khi gọi say(), hàm thứ hai
+  được thực thi.
 
 </p>
 </details>
@@ -330,8 +523,10 @@ changeLocation();
 C: undefined, Japan
 ```
 
-- Khi khai báo `var location` trong hàm `changeLocation`, khai báo được hoisting lên đầu hàm với giá trị mặc định là `undefined`.
-- Nên `console.log(location)` đầu tiên in `undefined`. Sau khi gán giá trị "Japan", dòng `console.log(location)` thứ hai in "Japan".
+- Khi khai báo `var location` trong hàm `changeLocation`, khai báo được hoisting lên đầu hàm với giá trị mặc định
+  là `undefined`.
+- Nên `console.log(location)` đầu tiên in `undefined`. Sau khi gán giá trị "Japan", dòng `console.log(location)` thứ hai
+  in "Japan".
 - Chú ý hoisting chỉ đưa khai báo lên đầu, nhưng không di chuyển giá trị.
 
 </p>
@@ -654,11 +849,16 @@ console.log("End");
 ```text
 A: > 10 sec
 ```
+
 - `setTimeout` đưa hàm `callback` vào `callback queue` và chờ Call Stack trống để thực thi.
-- Vòng lặp while kéo dài 10 giây, ngăn callback thực thi trong thời gian này.Sau khi vòng lặp kết thúc, callback được thực thi.
-- Thời gian chờ tối thiểu của setTimeout là 5 giây, nhưng tổng thời gian thực tế phụ thuộc vào khi nào Call Stack trống. Vì vòng lặp chiếm 10 giây, callback thực thi sau khoảng hơn 10 giây.
+- Vòng lặp while kéo dài 10 giây, ngăn callback thực thi trong thời gian này.Sau khi vòng lặp kết thúc, callback được
+  thực thi.
+- Thời gian chờ tối thiểu của setTimeout là 5 giây, nhưng tổng thời gian thực tế phụ thuộc vào khi nào Call Stack trống.
+  Vì vòng lặp chiếm 10 giây, callback thực thi sau khoảng hơn 10 giây.
 
 </p>
 </details>
+
+[⬆ Back to Top](#title)
 
 ---
