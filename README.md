@@ -1,182 +1,182 @@
 ## Tổng hợp những câu hỏi JavaScript <a id="title"/>
 
-## Lí thuyết
+### Lí thuyết
 
-### 1. `scope` trong Javascript là gì ?
-
-```javascript
-
-```
-
-### 2. So sánh sự khác nhau giữa `var | let | const` ?
+#### 1. `scope` trong Javascript là gì ?
 
 ```javascript
 
 ```
 
-### 3. So sánh sự khác nhau giữa `isNaN` và `Number.isNaN` ?
+#### 2. So sánh sự khác nhau giữa `var | let | const` ?
 
 ```javascript
 
 ```
 
-### 4. So sánh sự khác nhau giữa toán tử `==` và `===` là gì?
+#### 3. So sánh sự khác nhau giữa `isNaN` và `Number.isNaN` ?
 
 ```javascript
 
 ```
 
-### 5. So sánh sự khác nhau giữa `null` và `undefined` là gì?
+#### 4. So sánh sự khác nhau giữa toán tử `==` và `===` là gì?
 
 ```javascript
 
 ```
 
-### 6. So sánh sự khác nhau giữa `slice` và `splice` ?
+#### 5. So sánh sự khác nhau giữa `null` và `undefined` là gì?
 
 ```javascript
 
 ```
 
-### 7. So sánh sự khác nhau giữa `Call | Apply | Bind` ?
+#### 6. So sánh sự khác nhau giữa `slice` và `splice` ?
 
 ```javascript
 
 ```
 
-### 8. So sánh sự khác nhau giữa `Set | Map | Object` ?
+#### 7. So sánh sự khác nhau giữa `Call | Apply | Bind` ?
 
 ```javascript
 
 ```
 
-### 9. `Temporal Dead Zone`  là gì?
+#### 8. So sánh sự khác nhau giữa `Set | Map | Object` ?
 
 ```javascript
 
 ```
 
-### 10. Hoisting  là gì?
+#### 9. `Temporal Dead Zone`  là gì?
 
 ```javascript
 
 ```
 
-### 11. Closures là gì?
+#### 10. Hoisting  là gì?
 
 ```javascript
 
 ```
 
-### 12. Currying function  là gì?
+#### 11. Closures là gì?
 
 ```javascript
 
 ```
 
-### 13. Memoization  là gì?
+#### 12. Currying function  là gì?
 
 ```javascript
 
 ```
 
-### 14. setTimeout  là gì?
+#### 13. Memoization  là gì?
 
 ```javascript
 
 ```
 
-### 15. setInterval  là gì?
+#### 14. setTimeout  là gì?
 
 ```javascript
 
 ```
 
-### 16. Callback là gì?
+#### 15. setInterval  là gì?
 
 ```javascript
 
 ```
 
-### 17. Promise là gì?
+#### 16. Callback là gì?
 
 ```javascript
 
 ```
 
-### 18. Async/Await là gì?
+#### 17. Promise là gì?
 
 ```javascript
 
 ```
 
-### 19. Call stack  là gì?
+#### 18. Async/Await là gì?
 
 ```javascript
 
 ```
 
-### 20. Heap là gì?
+#### 19. Call stack  là gì?
 
 ```javascript
 
 ```
 
-### 21. Event table là gì?
+#### 20. Heap là gì?
 
 ```javascript
 
 ```
 
-### 22. Event queue là gì?
+#### 21. Event table là gì?
 
 ```javascript
 
 ```
 
-### 23. Microtask queue là gì?
+#### 22. Event queue là gì?
 
 ```javascript
 
 ```
 
-### 24. Event loop  là gì?
+#### 23. Microtask queue là gì?
 
 ```javascript
 
 ```
 
-### 25. `observable` là gì?
+#### 24. Event loop  là gì?
 
 ```javascript
 
 ```
 
-### 26. So sánh `Promise.all | Promise.setted | Promise.race | Promise.any`  là gì?
+#### 25. `observable` là gì?
 
 ```javascript
 
 ```
 
-### 27. So sánh `cookie | locale Storage | session Storage`  là gì?
+#### 26. So sánh `Promise.all | Promise.setted | Promise.race | Promise.any`  là gì?
 
 ```javascript
 
 ```
 
-### 28. Service worker là gì?
+#### 27. So sánh `cookie | locale Storage | session Storage`  là gì?
 
 ```javascript
 
 ```
 
-### 29. Phân biệt debouncing & throttling ?
+#### 28. Service worker là gì?
 
 ```javascript
 
 ```
 
-### 30. Có những cách nào để execute các file js từ bên ngoài ?
+#### 29. Phân biệt debouncing & throttling ?
+
+```javascript
+
+```
+
+#### 30. Có những cách nào để execute các file js từ bên ngoài ?
 
 - `<script>`: Với thẻ script không có thuộc tính gì khác thì trong quá trình phân tích cú pháp `HTML` nếu phải thẻ
   script, đến lúc này thì quá trình phân tích cú pháp `HTML` sẽ tạm dùng và để tải tệp js, sau đó thực thi luôn tệp js,
@@ -187,9 +187,11 @@
 - `<script defer>`: Tệp `js` được tải xuống song song cùng với quá trình phân tích cú pháp `HTML`. Và chỉ thực thi sau
   khi quá trình phân tích cú pháp `HTML` hoàn tất.
 
-## Viết mã
+---
 
-### 1. Output là gì?
+### Viết mã
+
+#### 1. Output là gì?
 
 ```javascript
 (function () {
@@ -218,7 +220,7 @@ ReferenceError: message is not defined
 
 ---
 
-### 2. Output là gì?
+#### 2. Output là gì?
 
 ```javascript
 console.log(typeof typeof 0);
@@ -239,7 +241,7 @@ string
 
 ---
 
-### 3. Output là gì?
+#### 3. Output là gì?
 
 ```javascript
 function say() {
@@ -269,7 +271,7 @@ undefined
 
 ---
 
-### 4. Output là gì?
+#### 4. Output là gì?
 
 ```javascript
 let fruits = ["Apple", "Orange", "Lemon", "Mango"];
@@ -298,7 +300,7 @@ console.log(fruits);
 
 ---
 
-### 5. Output là gì?
+#### 5. Output là gì?
 
 ```javascript
 console.log(undefined * 2)
@@ -322,7 +324,7 @@ NaN
 
 ---
 
-### 6. Output là gì?
+#### 6. Output là gì?
 
 ```javascript
 let name = "Alex";
@@ -348,7 +350,7 @@ console.log(age);
 
 ---
 
-### 7. Output là gì?
+#### 7. Output là gì?
 
 ```javascript
 var number = ["one", "two", "three", "four"]
@@ -370,7 +372,7 @@ console.log(number.shift());
 
 ---
 
-### 8. Output là gì?
+#### 8. Output là gì?
 
 ```javascript
 var student = {name: 'Lyly', age: 20};
@@ -394,7 +396,7 @@ console.log(student);
 
 ---
 
-### 9. Output là gì?
+#### 9. Output là gì?
 
 ```javascript
 console.log(9 + 12 + "7");
@@ -412,7 +414,7 @@ console.log(9 + 12 + "7");
 
 ---
 
-### 10. Output là gì?
+#### 10. Output là gì?
 
 ```javascript
 let a = [10];
@@ -435,7 +437,7 @@ console.log(b);
 
 ---
 
-### 11. Output là gì?
+#### 11. Output là gì?
 
 ```javascript
 var student = {
@@ -461,7 +463,7 @@ console.log(student.getName())
 
 ---
 
-### 12. Output là gì?
+#### 12. Output là gì?
 
 ```javascript
 say();
@@ -497,7 +499,7 @@ C: Bye
 
 ---
 
-### 13. Output là gì?
+#### 13. Output là gì?
 
 ```javascript
 var location = "HaNoi";
@@ -534,7 +536,7 @@ C: undefined, Japan
 
 ---
 
-### 14. Output là gì?
+#### 14. Output là gì?
 
 ```javascript
 const numbers = [8, 22, 91, 28, 101, 16, 300];
@@ -567,9 +569,11 @@ console.log(numbers);
 </p>
 </details>
 
+[⬆ Back to Top](#title)
+
 ---
 
-### 15. Output là gì?
+#### 15. Output là gì?
 
 ```javascript
 var of = ["loop"];
@@ -604,9 +608,11 @@ console.log(numbers);
 </p>
 </details>
 
+[⬆ Back to Top](#title)
+
 ---
 
-### 20. Output là gì?
+#### 20. Output là gì?
 
 ```javascript
 var a = (!+[] + [] + ![]);
@@ -631,9 +637,11 @@ console.log(a.length);
 </p>
 </details>
 
+[⬆ Back to Top](#title)
+
 ---
 
-### 21. Output sẽ là gì?
+#### 21. Output sẽ là gì?
 
 ```javascript
 const a = [1, 2, 3];
@@ -666,9 +674,11 @@ true, false
 </p>
 </details>
 
+[⬆ Back to Top](#title)
+
 ---
 
-### 22. Output sẽ là gì?
+#### 22. Output sẽ là gì?
 
 ```javascript
 function para(a, b = 2) {
@@ -693,9 +703,11 @@ para();
 </p>
 </details>
 
+[⬆ Back to Top](#title)
+
 ---
 
-### 23. Output sẽ là gì?
+#### 23. Output sẽ là gì?
 
 ```javascript
 function para(a, b = 2) {
@@ -720,9 +732,11 @@ para();
 </p>
 </details>
 
+[⬆ Back to Top](#title)
+
 ---
 
-### 29. Output sẽ là gì?
+#### 29. Output sẽ là gì?
 
 ```javascript
 for (var i = 0; i < 3; i++) {
@@ -767,9 +781,11 @@ C: `3 3 3`  and  `0 1 2`
 </p>
 </details>
 
+[⬆ Back to Top](#title)
+
 ---
 
-### 30. Output sẽ là gì?
+#### 30. Output sẽ là gì?
 
 ```javascript
 for (var i = 0; i < 3; i++) {
@@ -814,9 +830,11 @@ C: `3 3 3`  and  `0 1 2`
 </p>
 </details>
 
+[⬆ Back to Top](#title)
+
 ---
 
-### 31. What is the time taken to execute below timeout callback?
+#### 31. What is the time taken to execute below timeout callback?
 
 ```javascript
 console.log("Start");
