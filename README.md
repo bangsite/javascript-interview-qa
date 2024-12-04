@@ -1,36 +1,156 @@
 ## Tổng hợp những câu hỏi JavaScript <a id="title"/>
 
+### References
+
+- [Javascript interview questions](https://github.com/sudheerj/javascript-interview-questions)
+- [Javascript questions](https://github.com/lydiahallie/javascript-questions)
+- [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [The Modern JavaScript Tutorial](https://javascript.info/)
+
 ### Lí thuyết
 
 #### 1. `scope` trong Javascript là gì ?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
-```
+Scope là phạm vi của một biến được khai báo mà ta có thể truy cập được.
+
+Scope trong JavaScript quyết định nơi các biến, hàm hoặc đối tượng có thể được truy cập hoặc thay đổi trong mã nguồn.
+Scope giúp bảo vệ biến khỏi xung đột và làm cho mã dễ hiểu hơn.
+
+Từ ES6 JavaScript có 4 loại `scope` chính:
+
+- Global Scope (Phạm vi toàn cục).
+- Function Scope (Phạm vi hàm).
+- Block Scope (Phạm vi khối) - Được giới thiệu từ ES6.
+- Module Scope (Phạm vi mô-đun)- Được giới thiệu từ ES6 modules.
+    - Trước **ES6**, JavaScript không có cơ chế chính thức để chia nhỏ mã nguồn thành các đơn vị độc lập. Mọi thứ đều
+      thuộc phạm vi toàn cục hoặc phạm vi hàm.
+    - Với **ES6**, mô-đun (module) đã trở thành một phần của ngôn ngữ, và mỗi mô-đun có một phạm vi riêng, gọi
+      là `module scope`.
+    - Mỗi file JavaScript được xem như là một mô-đun, và các biến và hàm được khai báo trong mô-đun đó có phạm vi chỉ
+      trong mô-đun đó.
+
+> Lưu ý: Bất kỳ biến nào được khai báo bằng từ khóa `var`đều không thể có `block scope`. Do đó biến được khai báo bằng
+> từ khóa `var` bên trong khối `{}` thì có thể được truy cập ở bên ngoài khối đó.
+
+</p>
+</details>
+
+---
 
 #### 2. So sánh sự khác nhau giữa `var | let | const` ?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
-```
+- **`var`**:
+    - Phạm vi: Global hoặc function scope.
+    - Hoisting: Có hoisting (chuỗi khai báo được đưa lên đầu).
+    - Có thể được khai báo lại và gán giá trị mới.
+
+- **`let`**:
+    - Phạm vi: Global, function, và block scope.
+    - Hoisting: Có hoisting nhưng không thể sử dụng trước khai báo (biến ở trạng thái "temporal dead zone").
+    - Có thể được khai báo lại trong khối khác nhưng không thể khai báo lại trong cùng một khối.
+
+- **`const`**:
+    - Phạm vi: Global, function, và block scope.
+    - Hoisting: Có hoisting nhưng giống như `let`, không thể sử dụng trước khai báo.
+    - Không thể được khai báo lại và giá trị không thể thay đổi (nhưng nếu là một đối tượng, thuộc tính vẫn có thể thay
+      đổi).
+
+> `let` và `const` được giới thiệu trong ES6, trong khi `var` là kiểu khai báo cũ hơn và ít an toàn hơn.
+
+> Đối với `let` và `const`, mặc dù khai báo của chúng được `hoisted`, nhưng chúng không thể được sử dụng trước khi chúng
+> được khai báo trong mã. Nếu bạn cố gắng truy cập vào một biến `let` hoặc `const` trước khi nó được khai báo, bạn sẽ
+> gặp
+> lỗi ReferenceError do Temporal Dead Zone ( vùng chết tạm thời).
+
+</p>
+</details>
+
+---
 
 #### 3. So sánh sự khác nhau giữa `isNaN` và `Number.isNaN` ?
 
-```javascript
+NaN (Not-a-Number) được định nghĩa là một giá trị không phải là số. Một số biểu thức trong JavaScript sẽ trả về NaN, ví
+dụ:
 
+- Kết quả của phép chia `0/0`
+- Kết quả của phép toán với một giá trị không phải là số, như `Math.sqrt(-1)`.
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+- `isNaN()` kiểm tra xem "giá trị này có chuyển được thành số hợp lệ không". Nếu không, trả về `true`.
+
+```javascript
+isNaN(NaN)//true (vì NaN không phải là số).
+isNaN("abc")//true (vì khi cố gắng chuyển đổi "abc" thành số, nó trả về NaN).
+isNaN(undefined)//true (vì undefined chuyển đổi thành NaN).
+isNaN(123)//false (vì 123 là một số hợp lệ).
 ```
+
+- `Number.isNaN()` không chuyển đổi giá trị truyền vào. Nó chỉ trả về `true` nếu giá trị đó thực sự là `NaN`.
+
+```javascript
+Number.isNaN(NaN)//true.
+Number.isNaN(123)//false.
+Number.isNaN("abc")//false (không chuyển đổi, "abc" không phải là NaN).
+Number.isNaN(undefined)//false.
+```
+
+> Vấn đề lớn ở đây là `isNaN()` có thể trả về `true` cho những giá trị không phải là `NaN` thực sự (chẳng hạn như các
+> giá trị không có khả năng chuyển đổi thành số).
+>
+> `Number.isNaN()` giúp lập trình viên xác định chính xác giá trị `NaN` mà không phải lo lắng về việc chuyển đổi kiểu dữ
+> liệu không cần thiết. Đối với nhiều tình huống cần kiểm tra `NaN`, việc sử dụng `Number.isNaN()` là lựa chọn tốt hơn vì
+> nó loại bỏ những trường hợp gây nhầm lẫn mà `isNaN()` có thể tạo ra.
+</p>
+</details>
+
+---
 
 #### 4. So sánh sự khác nhau giữa toán tử `==` và `===` là gì?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
-```
+- `==` So sánh một cách gượng ép và trả kết quả về true nếu các biến có giá trị như nhau mà không cần trùng kiểu dữ
+  liệu.
+- `===` So sánh bằng tuyệt đối, nghĩa là toán tử này không chỉ so sánh các giá trị mà còn so sánh cả luôn kiểu dữ liệu
+  của biến. Nếu không thỏa mãn cả 2 điều kiện trên thì chắc chắn kết quả trả về là `false`.
+
+</p>
+</details>
+
+---
 
 #### 5. So sánh sự khác nhau giữa `null` và `undefined` là gì?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
-```
+- `null` có nghĩa là một giá trị rỗng hoặc không tồn tại. `null` được gán cho một biến như là một đại diện không có giá
+  trị.
+
+- `undefined` có nghĩa là không xác định. Trong javascript, khi bạn khai báo một biến nhưng chưa gán giá trị cho nó, giá
+  trị của biến đó sẽ là `undefined`.
+
+> - `undefined` và `null` đều là giá trị `falsy` khi sử dụng trong các điều kiện.
+>
+> - Khi so sánh với `==` (loose equality), `null` và `undefined` được coi là bằng nhau.
+>
+> - Khi sử dụng `===` (strict equality), chúng không được coi là bằng nhau, vì chúng có kiểu dữ liệu khác
+    nhau (`undefined` là `undefined`, `null` là `object`).
+
+
+</p>
+</details>
+
+---
 
 #### 6. So sánh sự khác nhau giữa `slice` và `splice` ?
 
