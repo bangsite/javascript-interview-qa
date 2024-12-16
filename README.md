@@ -75,16 +75,16 @@ Từ ES6 JavaScript có 4 loại `scope` chính:
 
 #### 3. So sánh sự khác nhau giữa `isNaN` và `Number.isNaN` ?
 
+<details><summary><b>Đáp án</b></summary>
+<p>
+
 NaN (Not-a-Number) được định nghĩa là một giá trị không phải là số. Một số biểu thức trong JavaScript sẽ trả về NaN, ví
 dụ:
 
 - Kết quả của phép chia `0/0`
 - Kết quả của phép toán với một giá trị không phải là số, như `Math.sqrt(-1)`.
 
-<details><summary><b>Đáp án</b></summary>
-<p>
-
-- `isNaN()` kiểm tra xem "giá trị này có chuyển được thành số hợp lệ không". Nếu không, trả về `true`.
+`isNaN()` kiểm tra xem "giá trị này có chuyển được thành số hợp lệ không". Nếu không, trả về `true`.
 
 ```javascript
 isNaN(NaN)//true (vì NaN không phải là số).
@@ -93,7 +93,7 @@ isNaN(undefined)//true (vì undefined chuyển đổi thành NaN).
 isNaN(123)//false (vì 123 là một số hợp lệ).
 ```
 
-- `Number.isNaN()` không chuyển đổi giá trị truyền vào. Nó chỉ trả về `true` nếu giá trị đó thực sự là `NaN`.
+`Number.isNaN()` không chuyển đổi giá trị truyền vào. Nó chỉ trả về `true` nếu giá trị đó thực sự là `NaN`.
 
 ```javascript
 Number.isNaN(NaN)//true.
@@ -113,6 +113,7 @@ Number.isNaN(undefined)//false.
 </details>
 
 ---
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 4. So sánh sự khác nhau giữa toán tử `==` và `===` là gì?
 
@@ -147,15 +148,18 @@ Number.isNaN(undefined)//false.
 > - Khi sử dụng `===` (strict equality), chúng không được coi là bằng nhau, vì chúng có kiểu dữ liệu khác
     nhau (`undefined` là `undefined`, `null` là `object`).
 
-
 </p>
 </details>
 
 ---
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 6. So sánh sự khác nhau giữa `slice` và `splice` ?
 
-- slice
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+- `slice`
     - Cắt bỏ 1 phần của mảng
     - Tạo ra 1 mảng mới
     - Trả về mảng con mới từ mảng gốc
@@ -164,7 +168,7 @@ Number.isNaN(undefined)//false.
 array.slice(from, until)
 ```
 
-- splice
+- `splice`
     - Thêm hoặc xóa phần tử trong mảng
     - Thay đổi trực tiếp mảng gốc
     - Trả về mảng các phần tử đã xóa
@@ -173,7 +177,16 @@ array.slice(from, until)
 array.splice(index, number of elements);
 ```
 
+</p>
+</details>
+
+---
+**[⬆ Back to Top](#table-of-contents)**
+
 #### 7. So sánh sự khác nhau giữa `Call | Apply | Bind` ?
+
+<details><summary><b>Đáp án</b></summary>
+<p>
 
 **Call:** Gọi hàm và cho phép bạn truyền vào một object và các đối số phân cách nhau bởi dấu phẩy
 
@@ -224,6 +237,11 @@ say(); // Hello David John, How are you?
 >
 > `call`, `apply`, `bind` giúp chúng ta giải quyết vấn đề ngữ cảnh động của this trong javascript
 
+</p>
+</details>
+
+---
+
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -261,6 +279,7 @@ console.log(Object.keys(myObject)); // [a, b];
 </details>
 
 ---
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 9. `Temporal Dead Zone` (TDZ) là gì?
 
@@ -287,6 +306,7 @@ somethingDo();
 </details>
 
 ---
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 10. Hoisting  là gì?
 
@@ -329,13 +349,15 @@ const sub = () => console.log('Subtracting');
 </details>
 
 ---
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 11. Closures là gì?
 
 <details><summary><b>Đáp án</b></summary>
 <p>
 
-- Closure là một hàm có thể ghi nhớ và truy cập phạm vi biến của hàm cha bao quanh nó ngay cả khi hàm cha đã kết thúc thực thi.
+- Closure là một hàm có thể ghi nhớ và truy cập phạm vi biến của hàm cha bao quanh nó ngay cả khi hàm cha đã kết thúc
+  thực thi.
 - Nói cách khác, `closure` "đóng gói" phạm vi tại thời điểm nó được tạo.
 
 </p>
@@ -343,7 +365,7 @@ const sub = () => console.log('Subtracting');
 ```javascript
 function createCounter() {
     let count = 0; // Biến của hàm cha
-    
+
     return function () {
         count++;
         return count;
@@ -361,126 +383,278 @@ console.log(counter()); // 3
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 #### 12. Currying function  là gì?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
-```
+</p>
+
+</details>
+
+---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 13. Memoization  là gì?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
-```
+</p>
+
+</details>
+
+---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 14. setTimeout  là gì?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
-```
+</p>
+
+</details>
+
+---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 15. setInterval  là gì?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
-```
+</p>
+
+</details>
+
+---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 16. Callback là gì?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
-```
+</p>
+
+</details>
+
+---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 17. Promise là gì?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
-```
+</p>
+
+</details>
+
+---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 18. Async/Await là gì?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
-```
+</p>
+
+</details>
+
+---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 19. Call stack  là gì?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
-```
+</p>
+
+</details>
+
+---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 20. Heap là gì?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
-```
+</p>
+
+</details>
+
+---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 21. Event table là gì?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
-```
+</p>
+
+</details>
+
+---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 22. Event queue là gì?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
-```
+</p>
+
+</details>
+
+---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 23. Microtask queue là gì?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
-```
+</p>
+
+</details>
+
+---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 24. Event loop  là gì?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
-```
+</p>
+
+</details>
+
+---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 25. `observable` là gì?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
-```
+</p>
+
+</details>
+
+---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 26. So sánh `Promise.all | Promise.setted | Promise.race | Promise.any`  là gì?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
-```
+</p>
+
+</details>
+
+---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 27. So sánh `cookie | locale Storage | session Storage`  là gì?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
-```
+</p>
+
+</details>
+
+---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 28. Service worker là gì?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
-```
+</p>
+
+</details>
+
+---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 29. Phân biệt debouncing & throttling ?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
-```
+</p>
 
-#### 30. Có những cách nào để execute các file js từ bên ngoài ?
-
-- `<script>`: Với thẻ script không có thuộc tính gì khác thì trong quá trình phân tích cú pháp `HTML` nếu phải thẻ
-  script, đến lúc này thì quá trình phân tích cú pháp `HTML` sẽ tạm dùng và để tải tệp js, sau đó thực thi luôn tệp js,
-  rồi mới tiếp tục lại quá trình phân tích cú pháp `HTML`.
-- `<script async>`: Tệp `js` được tải xuống song song cùng với quá trình phân tích cú pháp `HTML`. Sau khi hoàn tất tải
-  xuống, tệp js sẽ thực thi, quá trình phân tích cú pháp `HTML` sẽ bị tạm ngừng cho tới khi tệp `js` thưc thi xong, thì
-  mới tiếp tục.
-- `<script defer>`: Tệp `js` được tải xuống song song cùng với quá trình phân tích cú pháp `HTML`. Và chỉ thực thi sau
-  khi quá trình phân tích cú pháp `HTML` hoàn tất.
+</details>
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
+
+#### 30. Các cách nhúng và thực thi tệp JavaScript trong HTML là gì? Giải thích sự khác biệt giữa `<script>`, `<script async>`,  `<script defer>` ?
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+Trong HTML, bạn có thể nhúng và thực thi tệp JavaScript thông qua thẻ `<script>`. Tuy nhiên, cách tệp JavaScript được
+tải xuống và thực thi phụ thuộc vào thuộc tính của thẻ `<script>`:
+
+- `<script>`:
+    - Khi trình duyệt gặp thẻ `<script>`, nó sẽ dừng phân tích cú pháp HTML.
+    - Tệp JavaScript được tải xuống và thực thi ngay lập tức.
+    - Sau khi thực thi xong, quá trình phân tích cú pháp HTML tiếp tục.
+
+> Chỉ dùng nếu JavaScript phải được thực thi ngay lập tức và ảnh hưởng trực tiếp đến nội dung HTML phía dưới.
+
+- `<script async>`:
+    - Tệp JavaScript được tải xuống song song (asynchronously) trong khi HTML vẫn tiếp tục được phân tích cú pháp.
+    - Khi tệp JavaScript được tải xong, nó sẽ được thực thi ngay lập tức, tạm dừng HTML parsing.
+
+> Thứ tự thực thi không được đảm bảo. Thích hợp với các tệp JavaScript không phụ thuộc vào nội dung HTML hoặc không phụ thuộc thứ tự với các script khác.
+
+- Tệp `js` được tải xuống song song cùng với quá trình phân tích cú pháp `HTML`. Sau khi hoàn tất tải
+  xuống, tệp js sẽ thực thi, quá trình phân tích cú pháp `HTML` sẽ bị tạm ngừng cho tới khi tệp `js` thưc thi xong, thì
+  mới tiếp tục.
+- `<script defer>`:
+    - Tệp JavaScript được tải xuống song song trong khi HTML vẫn đang được phân tích cú pháp.
+    - Tệp JavaScript chỉ được thực thi sau khi HTML parsing hoàn tất.
+> Thích hợp với các tệp JavaScript phụ thuộc vào cấu trúc HTML nhưng không cần thực thi ngay lập tức.
+
+</p>
+
+</details>
+
+---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Viết mã
 
