@@ -113,7 +113,7 @@ Number.isNaN(undefined)//false.
 </details>
 
 ---
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 4. So sánh sự khác nhau giữa toán tử `==` và `===` là gì?
 
@@ -152,7 +152,7 @@ Number.isNaN(undefined)//false.
 </details>
 
 ---
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 6. So sánh sự khác nhau giữa `slice` và `splice` ?
 
@@ -181,7 +181,7 @@ array.splice(index, number of elements);
 </details>
 
 ---
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 7. So sánh sự khác nhau giữa `Call | Apply | Bind` ?
 
@@ -243,7 +243,7 @@ say(); // Hello David John, How are you?
 ---
 
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 8. So sánh sự khác nhau giữa `Set | Map | Object` ?
 
@@ -279,7 +279,7 @@ console.log(Object.keys(myObject)); // [a, b];
 </details>
 
 ---
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 9. `Temporal Dead Zone` (TDZ) là gì?
 
@@ -306,7 +306,7 @@ somethingDo();
 </details>
 
 ---
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 10. Hoisting  là gì?
 
@@ -349,7 +349,7 @@ const sub = () => console.log('Subtracting');
 </details>
 
 ---
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 11. Closures là gì?
 
@@ -383,7 +383,7 @@ console.log(counter()); // 3
 
 ---
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 12. Currying function  là gì?
 
@@ -396,7 +396,7 @@ console.log(counter()); // 3
 
 ---
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 13. Memoization  là gì?
 
@@ -409,7 +409,7 @@ console.log(counter()); // 3
 
 ---
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 14. setTimeout  là gì?
 
@@ -422,7 +422,7 @@ console.log(counter()); // 3
 
 ---
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 15. setInterval  là gì?
 
@@ -435,7 +435,7 @@ console.log(counter()); // 3
 
 ---
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 16. Callback là gì?
 
@@ -448,7 +448,7 @@ console.log(counter()); // 3
 
 ---
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 17. Promise là gì?
 
@@ -461,7 +461,7 @@ console.log(counter()); // 3
 
 ---
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 18. Async/Await là gì?
 
@@ -474,7 +474,7 @@ console.log(counter()); // 3
 
 ---
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 19. Call stack  là gì?
 
@@ -487,7 +487,7 @@ console.log(counter()); // 3
 
 ---
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 20. Heap là gì?
 
@@ -500,7 +500,7 @@ console.log(counter()); // 3
 
 ---
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 21. Event table là gì?
 
@@ -513,7 +513,7 @@ console.log(counter()); // 3
 
 ---
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 22. Event queue là gì?
 
@@ -526,7 +526,7 @@ console.log(counter()); // 3
 
 ---
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 23. Microtask queue là gì?
 
@@ -539,7 +539,7 @@ console.log(counter()); // 3
 
 ---
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 24. Event loop  là gì?
 
@@ -552,7 +552,7 @@ console.log(counter()); // 3
 
 ---
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 25. `observable` là gì?
 
@@ -565,7 +565,7 @@ console.log(counter()); // 3
 
 ---
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 26. So sánh `Promise.all | Promise.setted | Promise.race | Promise.any`  là gì?
 
@@ -578,7 +578,7 @@ console.log(counter()); // 3
 
 ---
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 27. So sánh `cookie | locale Storage | session Storage`  là gì?
 
@@ -591,7 +591,7 @@ console.log(counter()); // 3
 
 ---
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 28. Service worker là gì?
 
@@ -604,7 +604,7 @@ console.log(counter()); // 3
 
 ---
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 29. Phân biệt debouncing & throttling ?
 
@@ -617,7 +617,7 @@ console.log(counter()); // 3
 
 ---
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 #### 30. Các cách nhúng và thực thi tệp JavaScript trong HTML là gì? Giải thích sự khác biệt giữa `<script>`, `<script async>`,  `<script defer>` ?
 
@@ -654,7 +654,7 @@ tải xuống và thực thi phụ thuộc vào thuộc tính của thẻ `<scri
 
 ---
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#title)**
 
 ### Viết mã
 
