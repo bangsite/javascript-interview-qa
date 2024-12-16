@@ -106,7 +106,8 @@ Number.isNaN(undefined)//false.
 > giá trị không có khả năng chuyển đổi thành số).
 >
 > `Number.isNaN()` giúp lập trình viên xác định chính xác giá trị `NaN` mà không phải lo lắng về việc chuyển đổi kiểu dữ
-> liệu không cần thiết. Đối với nhiều tình huống cần kiểm tra `NaN`, việc sử dụng `Number.isNaN()` là lựa chọn tốt hơn vì
+> liệu không cần thiết. Đối với nhiều tình huống cần kiểm tra `NaN`, việc sử dụng `Number.isNaN()` là lựa chọn tốt hơn
+> vì
 > nó loại bỏ những trường hợp gây nhầm lẫn mà `isNaN()` có thể tạo ra.
 </p>
 </details>
@@ -154,39 +155,211 @@ Number.isNaN(undefined)//false.
 
 #### 6. So sánh sự khác nhau giữa `slice` và `splice` ?
 
-```javascript
+- slice
+    - Cắt bỏ 1 phần của mảng
+    - Tạo ra 1 mảng mới
+    - Trả về mảng con mới từ mảng gốc
 
+```javascript
+array.slice(from, until)
+```
+
+- splice
+    - Thêm hoặc xóa phần tử trong mảng
+    - Thay đổi trực tiếp mảng gốc
+    - Trả về mảng các phần tử đã xóa
+
+```text
+array.splice(index, number of elements);
 ```
 
 #### 7. So sánh sự khác nhau giữa `Call | Apply | Bind` ?
 
+**Call:** Gọi hàm và cho phép bạn truyền vào một object và các đối số phân cách nhau bởi dấu phẩy
+
 ```javascript
+let name = {firstName: "David", lastName: "John"};
+
+function sayName(param1, param2) {
+    console.log(
+        param1 + " " + this.firstName + " " + this.lastName + ", " + param2
+    );
+}
+
+sayName.call(name, "Hello", "How are you?"); // Hello David John, How are you?
+```
+
+**Apply:** Tương tự như `call()`. Gọi hàm và cho phép bạn truyền vào một object và các đối số thông qua mảng
+
+```javascript
+let name = {firstName: "David", lastName: "John"};
+
+function sayName(param1, param2) {
+    console.log(
+        param1 + " " + this.firstName + " " + this.lastName + ", " + param2
+    );
+}
+
+invite.apply(name, ["Hello", "How are you?"]); // Hello David John, How are you?
 
 ```
+
+**Bind:** Trả về một hàm mới, cho phép bạn truyền vào một object và các đối số phân cách nhau bởi dấu phẩy.
+
+```javascript
+let name = {firstName: "David", lastName: "John"};
+
+function sayName(param1, param2) {
+    console.log(
+        param1 + " " + this.firstName + " " + this.lastName + ", " + param2
+    );
+}
+
+let say = sayName.bind(name, "Hello", "How are you?");
+
+say(); // Hello David John, How are you?
+```
+
+> Một lưu ý chung cho cả ba phương thức trên là this sẽ đề cập đến object mà ta truyền vào.
+>
+> `call`, `apply`, `bind` giúp chúng ta giải quyết vấn đề ngữ cảnh động của this trong javascript
+
+
+**[⬆ Back to Top](#table-of-contents)**
 
 #### 8. So sánh sự khác nhau giữa `Set | Map | Object` ?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
+- `Set`:
+    - Là 1 collection dạng tập hợp, chứa các giá trị duy nhất.
+    - Không lưu trữ theo cặp key-value.
+    - Duy trì thứ tự chèn (insertion order).
+- `Map` :
+    - Là 1 collection dưới dạng `key-value`, chứa các giá trị duy nhất..
+    - Cho phép bất kỳ kiểu dữ liệu nào làm key, không giới hạn như Object (chỉ chuỗi và Symbol).
+    - Duy trì thứ tự các `key` truyền bào,
+    - Không kế thừa thuộc tính từ Object.prototype nên tránh được các vấn đề liên quan đến xung đột tên.
+- `Object`:
+    - Một cấu trúc dữ liệu dạng `key-value`, nhưng key chỉ có thể là chuỗi hoặc Symbol.
+    - Không đảm bảo thứ tự chèn cho các key là chuỗi (nhưng đảm bảo cho số nguyên).
+    - Kế thừa các thuộc tính và phương thức từ Object.prototype, có thể gây ra xung đột tên nếu không cẩn thận.
+
+```javascript
+const mySet = new Set(['a', 'a', 'b', 1, 2, 1]);
+console.log(mySet);  // {'a', 'b', 1, 2}
+
+let myMap = new Map([['a', 111], ['b', 222]]);
+console.log(myMap);  // {"a" => 111, "b" => 222}
+
+let myObject = {a: 1, b: 2};
+console.log(Object.keys(myObject)); // [a, b];
 ```
 
-#### 9. `Temporal Dead Zone`  là gì?
+</p>
+</details>
+
+---
+
+#### 9. `Temporal Dead Zone` (TDZ) là gì?
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+- Là vùng chết tạm thời trong `scope`, nơi biến được khai báo bằng let hoặc const không thể truy cập trước khi khởi tạo.
+- Khi cố gắng truy cập biến trong TDZ, chương trình sẽ ném lỗi ReferenceError.
+
+</p>
 
 ```javascript
+function somethingDo() {
+    console.log(numberFirst); // undefined
+    console.log(numberSecond); // ReferenceError
 
+    var numberFirst = 1;
+    let numberSecond = 2;
+}
+
+somethingDo();
 ```
+
+</details>
+
+---
 
 #### 10. Hoisting  là gì?
 
-```javascript
+<details><summary><b>Đáp án</b></summary>
+<p>
 
+- Là cơ chế mà JavaScript đưa các khai báo (biến, hàm) lên đầu phạm vi `scope` trước khi thực thi mã.
+
+> Lưu ý: Chỉ khai báo được hoisted, không phải giá trị.
+
+- `var`:
+    - `Hoisted` với giá trị mặc định `undefined`.
+    - Không gây lỗi khi truy cập trước khi khai báo, nhưng giá trị là `undefined`.
+- `let`, `const`:
+    - Hoisted nhưng nằm trong TDZ (không được khởi tạo).
+    - Gây lỗi `ReferenceError` nếu truy cập trước khi khai báo.
+- Function Declarations:
+    - Hoisted hoàn toàn, có thể gọi trước khi khai báo.
+- Function Expressions và Arrow Functions:
+    - Không hoisted; sẽ gặp ReferenceError nếu truy cập trước khi khai báo.
+
+</p>
+
+```javascript
+console.log(a); // undefined (hoisting)
+var a = 5;
+
+console.log(b); // ReferenceError (TDZ)
+let b = 10;
+
+add(); // Chạy được (hoisting cho function declaration)
+function add() {
+    console.log('Adding');
+}
+
+sub(); // ReferenceError (function expression không hoisted)
+const sub = () => console.log('Subtracting');
 ```
+
+</details>
+
+---
 
 #### 11. Closures là gì?
 
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+- Closure là một hàm có thể ghi nhớ và truy cập phạm vi biến của hàm cha bao quanh nó ngay cả khi hàm cha đã kết thúc thực thi.
+- Nói cách khác, `closure` "đóng gói" phạm vi tại thời điểm nó được tạo.
+
+</p>
+
 ```javascript
+function createCounter() {
+    let count = 0; // Biến của hàm cha
+    
+    return function () {
+        count++;
+        return count;
+    };
+}
+
+const counter = createCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2
+console.log(counter()); // 3
 
 ```
+
+</details>
+
+---
 
 #### 12. Currying function  là gì?
 
