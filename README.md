@@ -441,6 +441,32 @@ console.log(counter()); // 3
 
 <details><summary><b>Đáp án</b></summary>
 <p>
+Callback là một function, được truyền vào một function khác như một tham số, và được gọi sau khi một tác vụ hoàn thành.
+
+`Callback` được sử dụng trong các trường hợp cần xử lý đồng bộ, bất đồng bộ hoặc quản lý các nhiệm vụ nối tiếp nhau.
+
+Ứng dụng của Callback:
+
+- Gọi hàm khi sự kiện xảy ra: Như khi nhấn một nút, hoặc khi xử lý các thao tác bất đồng bộ như đọc dữ liệu từ API hoặc
+  cơ sở dữ liệu.
+
+- Giải quyết vấn đề đồng bộ: Giúp điều khiển luồng logic giữa nhiều tác vụ độc lập, giúp tránh lỗi chờ đợi.
+
+> Khi sử dụng quá nhiều callback, một vấn đề phức tạp gọi là Callback Hell có thể xuất hiện, làm cho code khó quản lý và theo dõi.
+> 
+> Giải pháp thay thế: Promise, Async/Await.
+
+```javascript
+function greet(name, callback) {
+    console.log(`Hello, ${name}`);
+    callback();
+}
+
+greet('Alice', function () {
+    console.log('This is a callback function.');
+});
+
+```
 
 </p>
 
@@ -455,7 +481,32 @@ console.log(counter()); // 3
 <details><summary><b>Đáp án</b></summary>
 <p>
 
+`Promise` là một object đại diện cho việc hoàn thành kết quả (hoặc sự thất bại) từ một lệnh bất đồng bộ, và giá trị kết
+quả của lệnh đó.
+
+Nó được sử dụng để xử lý các hoạt động không đồng bộ, chẳng hạn như thực hiện lệnh gọi API hoặc đọc tệp, theo cách có tổ
+chức và dễ đọc hơn.
 </p>
+
+Một Promise có thể ở một trong những trạng thái sau:
+
+- **Fulfilled** : trạng thái đã được thực hiện thành công.
+- **Rejected** : trạng thái đã thất bại.
+- **Pending** : trạng thái ban đầu, chưa được thực hiện hoặc bị từ chối.
+
+Promise giúp xử lý các tác vụ bất đồng bộ bằng cách cung cấp các phương thức sau:
+
+- **`.then()`**: Xử lý khi Promise được giải quyết thành công.
+- **`.catch()`**: Xử lý khi Promise bị từ chối (có lỗi).
+- **`.finally()`**: Thực thi bất kể Promise thành công hay thất bại.
+
+```javascript
+myPromise
+    .then(result => console.log("Kết quả:", result))
+    .catch(error => console.error("Lỗi:", error))
+    .finally(() => console.log("Hoàn tất xử lý!"));
+
+```
 
 </details>
 
@@ -638,7 +689,8 @@ tải xuống và thực thi phụ thuộc vào thuộc tính của thẻ `<scri
     - Tệp JavaScript được tải xuống song song (asynchronously) trong khi HTML vẫn tiếp tục được phân tích cú pháp.
     - Khi tệp JavaScript được tải xong, nó sẽ được thực thi ngay lập tức, tạm dừng HTML parsing.
 
-> Thứ tự thực thi không được đảm bảo. Thích hợp với các tệp JavaScript không phụ thuộc vào nội dung HTML hoặc không phụ thuộc thứ tự với các script khác.
+> Thứ tự thực thi không được đảm bảo. Thích hợp với các tệp JavaScript không phụ thuộc vào nội dung HTML hoặc không phụ
+> thuộc thứ tự với các script khác.
 
 - Tệp `js` được tải xuống song song cùng với quá trình phân tích cú pháp `HTML`. Sau khi hoàn tất tải
   xuống, tệp js sẽ thực thi, quá trình phân tích cú pháp `HTML` sẽ bị tạm ngừng cho tới khi tệp `js` thưc thi xong, thì
@@ -646,6 +698,7 @@ tải xuống và thực thi phụ thuộc vào thuộc tính của thẻ `<scri
 - `<script defer>`:
     - Tệp JavaScript được tải xuống song song trong khi HTML vẫn đang được phân tích cú pháp.
     - Tệp JavaScript chỉ được thực thi sau khi HTML parsing hoàn tất.
+
 > Thích hợp với các tệp JavaScript phụ thuộc vào cấu trúc HTML nhưng không cần thực thi ngay lập tức.
 
 </p>
