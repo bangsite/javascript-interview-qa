@@ -441,6 +441,7 @@ console.log(counter()); // 3
 
 <details><summary><b>Đáp án</b></summary>
 <p>
+    
 `Callback` là một function, được truyền vào một function khác như một tham số, và được gọi sau khi một tác vụ hoàn thành.
 
 `Callback` được sử dụng trong các trường hợp cần xử lý đồng bộ, bất đồng bộ hoặc quản lý các nhiệm vụ nối tiếp nhau.
@@ -451,11 +452,6 @@ console.log(counter()); // 3
   cơ sở dữ liệu.
 
 - Giải quyết vấn đề đồng bộ: Giúp điều khiển luồng logic giữa nhiều tác vụ độc lập, giúp tránh lỗi chờ đợi.
-
-> Khi sử dụng quá nhiều `callback`, một vấn đề phức tạp gọi là `Callback Hell` có thể xuất hiện, làm cho code khó quản lý và theo dõi.
-> 
-> Giải pháp thay thế: Promise, Async/Await.
-
 ```javascript
 function greet(name, callback) {
     console.log(`Hello, ${name}`);
@@ -467,6 +463,9 @@ greet('Alice', function () {
 });
 
 ```
+> Khi sử dụng quá nhiều `callback`, một vấn đề phức tạp gọi là `Callback Hell` có thể xuất hiện, làm cho code khó quản lý và theo dõi.
+> 
+> Giải pháp thay thế: Promise, Async/Await.
 
 </p>
 
