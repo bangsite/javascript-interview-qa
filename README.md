@@ -441,7 +441,7 @@ console.log(counter()); // 3
 
 <details><summary><b>Đáp án</b></summary>
 <p>
-Callback là một function, được truyền vào một function khác như một tham số, và được gọi sau khi một tác vụ hoàn thành.
+`Callback` là một function, được truyền vào một function khác như một tham số, và được gọi sau khi một tác vụ hoàn thành.
 
 `Callback` được sử dụng trong các trường hợp cần xử lý đồng bộ, bất đồng bộ hoặc quản lý các nhiệm vụ nối tiếp nhau.
 
@@ -452,7 +452,7 @@ Callback là một function, được truyền vào một function khác như m�
 
 - Giải quyết vấn đề đồng bộ: Giúp điều khiển luồng logic giữa nhiều tác vụ độc lập, giúp tránh lỗi chờ đợi.
 
-> Khi sử dụng quá nhiều callback, một vấn đề phức tạp gọi là Callback Hell có thể xuất hiện, làm cho code khó quản lý và theo dõi.
+> Khi sử dụng quá nhiều `callback`, một vấn đề phức tạp gọi là `Callback Hell` có thể xuất hiện, làm cho code khó quản lý và theo dõi.
 > 
 > Giải pháp thay thế: Promise, Async/Await.
 
@@ -488,13 +488,13 @@ Nó được sử dụng để xử lý các hoạt động không đồng bộ,
 chức và dễ đọc hơn.
 </p>
 
-Một Promise có thể ở một trong những trạng thái sau:
+Một `Promise` có thể ở một trong những trạng thái sau:
 
 - **Fulfilled** : trạng thái đã được thực hiện thành công.
 - **Rejected** : trạng thái đã thất bại.
 - **Pending** : trạng thái ban đầu, chưa được thực hiện hoặc bị từ chối.
 
-Promise giúp xử lý các tác vụ bất đồng bộ bằng cách cung cấp các phương thức sau:
+`Promise` giúp xử lý các tác vụ bất đồng bộ bằng cách cung cấp các phương thức sau:
 
 - **`.then()`**: Xử lý khi Promise được giải quyết thành công.
 - **`.catch()`**: Xử lý khi Promise bị từ chối (có lỗi).
