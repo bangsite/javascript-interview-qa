@@ -385,10 +385,65 @@ console.log(counter()); // 3
 
 **[⬆ Back to Top](#title)**
 
-#### 12. Currying function  là gì?
+#### 12. Higher Order Function(HOF) là gì?
 
 <details><summary><b>Đáp án</b></summary>
 <p>
+
+Higher Order Function (HOF) là một hàm nhận tham số đầu vào là một `funciton` hoặc trả về kết quả là một `function` hoặc
+cả hai.
+
+- HOF giúp chúng ta viết mã dễ đọc, dễ bảo trì và tái sử dụng.
+- Các phương thức như `map`, `filter`, `reduce` là các ví dụ phổ biến của HOF.
+
+```javascript
+function greet(name) {
+    return `Hello, ${name}`;
+}
+
+function greetUser(greet) {
+    return greet('Alice');
+}
+
+console.log(greetUser(greet)); // Hello, Alice
+```
+
+</p>
+
+</details>
+
+---
+
+**[⬆ Back to Top](#title)**
+
+#### 13. Currying function  là gì?
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+Currying là một kỹ thuật trong lập trình hàm, nó chuyển đổi một hàm nhận nhiều tham số thành chuỗi các hàm mỗi hàm chỉ
+nhận một tham số. Khi tất cả các tham số đã được truyền vào, hàm gốc sẽ được gọi.
+
+- Currying giúp chúng ta tạo ra các hàm mà chúng ta có thể sử dụng lại với các tham số khác nhau.
+
+```javascript
+function multiply(a, b, c) {
+    return a * b * c;
+}
+
+console.log(multiply(2, 3, 4)); // 24
+
+function multiply(a) {
+    return function (b) {
+        return function (c) {
+            return a * b * c;
+        };
+    };
+}
+
+console.log(multiply(2)(3)(4)); // 24
+
+```
 
 </p>
 
@@ -402,6 +457,37 @@ console.log(counter()); // 3
 
 <details><summary><b>Đáp án</b></summary>
 <p>
+Memoization là một kỹ thuật lưu trữ kết quả của các hàm gọi lại với các tham số giống nhau để giảm thời gian tính toán.
+
+- Khi hàm được gọi với tham số đã được lưu trữ, kết quả sẽ được trả về từ bộ nhớ cache thay vì tính toán lại.
+- Memoization giúp tăng tốc độ tính toán của hàm, đặc biệt là với các hàm đệ quy hoặc hàm có thời gian chạy lớn.
+- Có thể sử dụng một object hoặc một Map để lưu trữ kết quả của hàm.
+- Memoization thường được sử dụng trong các hàm đệ quy, hàm tính toán phức tạp, hoặc hàm truy cập dữ liệu từ API.
+
+```javascript
+function memoize(fn) {
+    const cache = {};
+    return function (...args) {
+        const key = JSON.stringify(args);
+        if (cache[key]) {
+            console.log('Fetching from cache');
+            return cache[key];
+        } else {
+            const result = fn(...args);
+            cache[key] = result;
+            return result;
+        }
+    };
+}
+
+function sum(a, b) {
+    console.log('Calculating sum');
+    return a + b;
+}
+
+const memoizedSum = memoize(sum);
+console.log(memoizedSum(2, 3)); // Calculating sum
+```
 
 </p>
 
@@ -416,6 +502,27 @@ console.log(counter()); // 3
 <details><summary><b>Đáp án</b></summary>
 <p>
 
+`setTimeout` là một hàm trong JavaScript cho phép bạn thực thi một hàm hoặc một đoạn mã sau một khoảng thời gian nhất
+định.
+
+- `setTimeout` trả về một `timeoutID` mà bạn có thể sử dụng để hủy thực thi của hàm hoặc đoạn mã đó.
+- Thời gian truyền vào `setTimeout` được đo bằng mili giây.
+- `setTimeout` không đảm bảo thời gian chính xác mà hàm sẽ được thực thi, nó chỉ đảm bảo rằng hàm sẽ không được thực thi
+  trước thời gian đã định.
+
+```javascript
+setTimeout(() => {
+    console.log('Hello, World!');
+}, 1000);
+
+const timeoutID = setTimeout(() => {
+    console.log('This will not be printed');
+}, 1000);
+
+clearTimeout(timeoutID); // Hủy thực thi của hàm trên
+
+```
+
 </p>
 
 </details>
@@ -429,6 +536,26 @@ console.log(counter()); // 3
 <details><summary><b>Đáp án</b></summary>
 <p>
 
+`setInterval` là một hàm trong JavaScript cho phép bạn thực thi một hàm hoặc một đoạn mã sau một khoảng thời gian nhất
+định, và lặp lại sau mỗi khoảng thời gian đó.
+
+- `setInterval` trả về một `intervalID` mà bạn có thể sử dụng để hủy thực thi của hàm hoặc đoạn mã đó.
+- Thời gian truyền vào `setInterval` được đo bằng mili giây.
+- `setInterval` không đảm bảo thời gian chính xác mà hàm sẽ được thực thi, nó chỉ đảm bảo rằng hàm sẽ được thực thi sau
+  mỗi khoảng thời gian đã định.
+
+```javascript
+let count = 0;
+const intervalID = setInterval(() => {
+    count++;
+    console.log(count);
+    if (count === 5) {
+        clearInterval(intervalID); // Hủy thực thi của hàm trên
+    }
+}, 1000);
+
+```
+
 </p>
 
 </details>
@@ -441,8 +568,9 @@ console.log(counter()); // 3
 
 <details><summary><b>Đáp án</b></summary>
 <p>
-    
-`Callback` là một function, được truyền vào một function khác như một tham số, và được gọi sau khi một tác vụ hoàn thành.
+
+`Callback` là một function, được truyền vào một function khác như một tham số, và được gọi sau khi một tác vụ hoàn
+thành.
 
 `Callback` được sử dụng trong các trường hợp cần xử lý đồng bộ, bất đồng bộ hoặc quản lý các nhiệm vụ nối tiếp nhau.
 
@@ -452,6 +580,7 @@ console.log(counter()); // 3
   cơ sở dữ liệu.
 
 - Giải quyết vấn đề đồng bộ: Giúp điều khiển luồng logic giữa nhiều tác vụ độc lập, giúp tránh lỗi chờ đợi.
+
 ```javascript
 function greet(name, callback) {
     console.log(`Hello, ${name}`);
@@ -463,8 +592,10 @@ greet('Alice', function () {
 });
 
 ```
-> Khi sử dụng quá nhiều `callback`, một vấn đề phức tạp gọi là `Callback Hell` có thể xuất hiện, làm cho code khó quản lý và theo dõi.
-> 
+
+> Khi sử dụng quá nhiều `callback`, một vấn đề phức tạp gọi là `Callback Hell` có thể xuất hiện, làm cho code khó quản
+> lý và theo dõi.
+>
 > Giải pháp thay thế: Promise, Async/Await.
 
 </p>
@@ -518,6 +649,32 @@ myPromise
 <details><summary><b>Đáp án</b></summary>
 <p>
 
+`Async/Await` là một cú pháp mới trong JavaScript giúp xử lý các hàm bất đồng bộ một cách dễ đọc và dễ quản lý hơn.
+
+- `Async` là một từ khóa được sử dụng để định nghĩa một hàm bất đồng bộ, trả về một `Promise`.
+- `Await` là một từ khóa được sử dụng bên trong hàm `async` để đợi cho một `Promise` được giải quyết hoặc bị từ chối.
+- `Await` chỉ có thể được sử dụng bên trong hàm `async`.
+- `Async/Await` giúp tránh `Callback Hell` và giúp code dễ đọc hơn so với `Promise`.
+- `Async/Await` giúp xử lý các lỗi bằng cách sử dụng `try/catch`.
+- `Async/Await` giúp viết code đồng bộ trong khi vẫn sử dụng các hàm bất đồng bộ.
+- `Async/Await` giúp viết code dễ đọc hơn, dễ bảo trì và dễ theo dõi hơn so với `Promise`.
+- `Async/Await` không thay thế `Promise`, mà là một cách viết code bất đồng bộ dễ đọc hơn.
+
+```javascript
+async function fetchData() {
+    try {
+        const response = await fetch('https://api.example.com/data');
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+fetchData();
+
+```
+
 </p>
 
 </details>
@@ -530,6 +687,39 @@ myPromise
 
 <details><summary><b>Đáp án</b></summary>
 <p>
+
+`Call stack` la một cấu trúc dữ liệu cho trình thông dịch JavaScript để theo dõi các hàm đang chờ thực thi.
+
+- Khi một hàm được gọi, nó sẽ được đẩy vào đỉnh của `call stack`.
+- Khi hàm hoàn thành thực thi, nó sẽ được loại bỏ khỏi `call stack`.
+- `Call stack` hoạt động theo nguyên tắc "LIFO" (Last In, First Out), nghĩa là hàm cuối cùng được thêm vào `call stack`
+  sẽ được thực thi đầu tiên.
+
+```javascript
+function multiply(a, b) {
+    return a * b;
+}
+
+function square(n) {
+    return multiply(n, n);
+}
+
+function printSquare(n) {
+    const squared = square(n);
+    console.log(squared);
+}
+
+printSquare(5);
+
+```
+
+- Khi `printSquare(5)` được gọi, nó sẽ được đẩy vào `call stack`.
+- `printSquare(5)` gọi `square(5)`, nó sẽ được đẩy vào `call stack`.
+- `square(5)` gọi `multiply(5, 5)`, nó sẽ được đẩy vào `call stack`.
+- `multiply(5, 5)` trả về 25, và được loại bỏ khỏi `call stack`.
+- `square(5)` trả về 25, và được loại bỏ khỏi `call stack`.
+- `printSquare(5)` in ra 25, và được loại bỏ khỏi `call stack`.
+- `call stack` trống.
 
 </p>
 
@@ -544,6 +734,26 @@ myPromise
 <details><summary><b>Đáp án</b></summary>
 <p>
 
+Heap hoặc (Heap bộ nhớ) là nơi lưu trữ dữ liệu động, bao gồm các đối tượng và các mảng. Đây là nơi diễn ra các lần phân
+bổ và giải phóng bộ nhớ. Cả `heap` và `call stack `đều là một phần của bộ nhớ trong trình thông dịch JavaScript.
+
+- Heap không có cấu trúc dữ liệu cụ thể, dữ liệu được lưu trữ theo cách không có thứ tự.
+- Heap được sử dụng để lưu trữ dữ liệu động được tạo ra trong quá trình thực thi của chương trình.
+- Heap được chia thành hai phần: Heap được quản lý và Heap không được quản lý.
+- Heap được quản lý: Là phần của Heap được sử dụng để lưu trữ dữ liệu được cấp phát và giải phóng bởi trình thông dịch
+  JavaScript.
+- Heap không được quản lý: Là phần của Heap không được sử dụng để lưu trữ dữ liệu được cấp phát và giải phóng bởi trình
+  thông dịch JavaScript.
+
+```javascript
+let object = {name: 'Alice'};
+let array = [1, 2, 3];
+
+```
+
+- Khi `object` và `array` được khởi tạo, chúng sẽ được lưu trữ trong Heap.
+- Khi chúng không còn được sử dụng, chúng sẽ được giải phóng khỏi Heap.
+
 </p>
 
 </details>
@@ -556,6 +766,28 @@ myPromise
 
 <details><summary><b>Đáp án</b></summary>
 <p>
+
+Event table là một cấu trúc dữ liệu trong trình thông dịch JavaScript để theo dõi các sự kiện và callback của chúng.
+
+- Khi một sự kiện xảy ra, nó sẽ được thêm vào `event table` với một callback tương ứng.
+- Khi sự kiện được kích hoạt, callback tương ứng sẽ được thêm vào `call stack` để thực thi.
+
+```javascript
+document.getElementById('myButton').addEventListener('click', function () {
+    console.log('Button clicked!');
+});
+
+
+```
+
+- Khi nút được nhấn, sự kiện `click` sẽ được thêm vào `event table` với callback
+  là `function () { console.log('Button clicked!'); }`.
+- Khi sự kiện được kích hoạt, callback sẽ được thêm vào `call stack` để thực thi.
+- Callback sẽ in ra `Button clicked!` trên console.
+- Callback sẽ được loại bỏ khỏi `call stack`.
+- `call stack` trống.
+- `event table` trống.
+- Quá trình hoàn tất.
 
 </p>
 
@@ -570,6 +802,29 @@ myPromise
 <details><summary><b>Đáp án</b></summary>
 <p>
 
+`Event queue` là một cấu trúc dữ liệu trong trình thông dịch JavaScript để theo dõi các sự kiện và callback của chúng.
+
+- Khi một sự kiện xảy ra, nó sẽ được thêm vào `event queue` với một callback tương ứng.
+- Khi `call stack` trống, sự kiện đầu tiên trong `event queue` sẽ được thêm vào `call stack` để thực thi.
+
+```javascript
+
+setTimeout(() => {
+    console.log('Hello, World!');
+}, 1000);
+
+
+```
+
+- Khi `setTimeout` được gọi, sự kiện `setTimeout` sẽ được thêm vào `event queue` với callback
+  là `function () { console.log('Hello, World!'); }`.
+- Sau 1 giây, sự kiện `setTimeout` sẽ được thêm vào `call stack` để thực thi.
+- Callback sẽ in ra `Hello, World!` trên console.
+- Callback sẽ được loại bỏ khỏi `call stack`.
+- `call stack` trống.
+- `event queue` trống.
+- Quá trình hoàn tất.
+
 </p>
 
 </details>
@@ -582,6 +837,31 @@ myPromise
 
 <details><summary><b>Đáp án</b></summary>
 <p>
+
+`Microtask queue` là một cấu trúc dữ liệu trong trình thông dịch JavaScript để theo dõi các microtask.
+
+- Microtask là các tác vụ nhỏ được thực thi sau khi `call stack` trống, trước khi thực thi các sự kiện
+  trong `event queue`.
+- Microtask thường được tạo bởi `Promise`, `process.nextTick`, `queueMicrotask`, `MutationObserver`.
+
+```javascript
+Promise.resolve().then(() => console.log('Microtask 1'));
+Promise.resolve().then(() => console.log('Microtask 2'));
+
+```
+
+- Khi `Promise.resolve().then()` được gọi, microtask 1 và microtask 2 sẽ được thêm vào `microtask
+- queue` với callback tương ứng.
+- Khi `call stack` trống, microtask 1 sẽ được thêm vào `call stack` để thực thi.
+- Callback sẽ in ra `Microtask 1` trên console.
+- Callback sẽ được loại bỏ khỏi `call stack`.
+- Khi `call stack` trống, microtask 2 sẽ được thêm vào `call stack` để thực thi.
+- Callback sẽ in ra `Microtask 2` trên console.
+- Callback sẽ được loại bỏ khỏi `call stack`.
+- `call stack` trống.
+- `microtask queue` trống.
+- Quá trình hoàn tất.
+- `event queue` trống.
 
 </p>
 
@@ -596,6 +876,33 @@ myPromise
 <details><summary><b>Đáp án</b></summary>
 <p>
 
+Event loop là một cơ chế trong trình thông dịch JavaScript để theo dõi và thực thi các sự kiện, callback, và microtask.
+
+- Event loop giữ cho `call stack` trống bằng cách thực thi các sự kiện trong `event queue` và `microtask queue`.
+- Event loop sẽ thực thi các sự kiện trong `event queue` trước, sau đó thực thi các microtask trong `microtask queue`.
+- Event loop giúp tránh `blocking` trong JavaScript, giúp chương trình chạy mượt mà và không bị treo.
+
+```javascript
+setTimeout(() => {
+    console.log('Hello, World!');
+}, 1000);
+
+
+
+```
+
+- Khi `setTimeout` được gọi, sự kiện `setTimeout` sẽ được thêm vào `event queue` với callback
+  là `function () { console.log('Hello, World!'); }`.
+- Sau 1 giây, sự kiện `setTimeout` sẽ được thêm vào `call stack` để thực thi.
+- Callback sẽ in ra `Hello, World!` trên console.
+- Callback sẽ được loại bỏ khỏi `call stack`.
+- `call stack` trống.
+- `event queue` trống.
+- Quá trình hoàn tất.
+- `microtask queue` trống.
+- `event loop` sẽ tiếp tục theo dõi các sự kiện và microtask khác.
+- `event loop` sẽ thực thi các microtask trước, sau đó thực thi các sự kiện trong `event queue`.
+
 </p>
 
 </details>
@@ -608,6 +915,23 @@ myPromise
 
 <details><summary><b>Đáp án</b></summary>
 <p>
+
+Observable là một giao thức hoặc một mẫu thiết kế cho việc xử lý các sự kiện và dữ liệu bất đồng bộ.
+
+- Observable giúp theo dõi và xử lý các sự kiện và dữ liệu bất đồng bộ một cách dễ dàng và linh hoạt.
+- Observable giúp xử lý các sự kiện và dữ liệu bất đồng bộ một cách dễ dàng và linh hoạt.
+
+```javascript
+const observable = new Observable(observer => {
+    observer.next('Hello, World!');
+    observer.complete();
+});
+```
+
+- Khi `observable` được tạo, nó sẽ gọi hàm `Observable` với một `observer`.
+- `observer` sẽ gọi `next` với giá trị `Hello, World!`.
+- `observer` sẽ gọi `complete` để kết thúc observable.
+- Observable sẽ hoàn tất.
 
 </p>
 
@@ -622,6 +946,44 @@ myPromise
 <details><summary><b>Đáp án</b></summary>
 <p>
 
+- `Promise.all`: Trả về một `Promise` khi tất cả các `Promise` con đã được giải quyết thành công. Nếu một trong
+  các `Promise` con bị từ chối, `Promise.all` sẽ bị từ chối.
+- `Promise.settled`: Trả về một `Promise` khi tất cả các `Promise` con đã được giải quyết hoặc bị từ
+  chối. `Promise.settled` sẽ trả về một mảng chứa kết quả hoặc lỗi của từng `Promise` con.
+- `Promise.race`: Trả về một `Promise` khi một trong các `Promise` con đã được giải quyết hoặc bị từ
+  chối. `Promise.race` sẽ trả về kết quả hoặc lỗi của `Promise` con đầu tiên được giải quyết hoặc bị từ chối.
+- `Promise.any`: Trả về một `Promise` khi một trong các `Promise` con đã được giải quyết thành công. `Promise.any` sẽ
+  trả về kết quả của `Promise` con đầu tiên được giải quyết thành công.
+
+```javascript
+
+const promise1 = new Promise((resolve, reject) => setTimeout(resolve, 100, 'Promise 1'));
+const promise2 = new Promise((resolve, reject) => setTimeout(resolve, 200, 'Promise 2'));
+const promise3 = new Promise((resolve, reject) => setTimeout(reject, 300, 'Promise 3'));
+
+Promise.all([promise1, promise2])
+    .then(values => console.log(values))
+    .catch(error => console.error(error));
+
+Promise.settled([promise1, promise2, promise3])
+    .then(values => console.log(values))
+    .catch(error => console.error(error));
+
+Promise.any([promise1, promise2, promise3])
+    .then(value => console.log(value))
+    .catch(error => console.error(error));
+
+Promise.race([promise1, promise2, promise3])
+    .then(value => console.log(value))
+    .catch(error => console.error(error));
+
+```
+
+- `Promise.all` sẽ in ra `['Promise 1', 'Promise 2']`.
+- `Promise.settled` sẽ in ra `['Promise 1', 'Promise 2', 'Promise 3']`.
+- `Promise.any` sẽ in ra `'Promise 1'`.
+- `Promise.race` sẽ in ra `'Promise 1'`.
+
 </p>
 
 </details>
@@ -634,6 +996,31 @@ myPromise
 
 <details><summary><b>Đáp án</b></summary>
 <p>
+
+Cookie, localStorage, và sessionStorage là các cách lưu trữ dữ liệu trong trình duyệt.
+
+- `Cookie`: Lưu trữ dữ liệu dưới dạng chuỗi với dung lượng tối đa 4KB. Cookie được gửi từ máy chủ đến trình duyệt và
+  được lưu trữ trên máy khách. Cookie có thể được sử dụng để xác thực, theo dõi, và lưu trữ thông tin người dùng.
+- `localStorage`: Lưu trữ dữ liệu dưới dạng chuỗi với dung lượng tối đa 5MB. localStorage lưu trữ dữ liệu trên máy khách
+  và không bao giờ hết hạn, trừ khi người dùng xóa nó hoặc xóa dữ liệu duyệt.
+- `sessionStorage`: Lưu trữ dữ liệu dưới dạng chuỗi với dung lượng tối đa 5MB. sessionStorage lưu trữ dữ liệu trên máy
+  khách và sẽ bị xóa khi cửa sổ trình duyệt đóng.
+
+```javascript
+// Cookie
+document.cookie = 'name=Alice';
+console.log(document.cookie); // 'name=Alice'
+
+// localStorage
+localStorage.setItem('name', 'Alice');
+console.log(localStorage.getItem('name')); // 'Alice'
+
+// sessionStorage
+sessionStorage.setItem('name', 'Alice');
+console.log(sessionStorage.getItem('name')); // 'Alice'
+
+
+```
 
 </p>
 
@@ -1392,6 +1779,48 @@ A: > 10 sec
   thực thi.
 - Thời gian chờ tối thiểu của setTimeout là 5 giây, nhưng tổng thời gian thực tế phụ thuộc vào khi nào Call Stack trống.
   Vì vòng lặp chiếm 10 giây, callback thực thi sau khoảng hơn 10 giây.
+
+</p>
+</details>
+
+[⬆ Back to Top](#title)
+
+---
+
+#### 32. Output sẽ là gì??
+
+```javascript
+const obj = {
+    a: 1,
+    b: {
+        valueOf: () => 2
+    }
+};
+
+console.log(obj.a + obj.b);
+
+```
+
+- A: 3
+- B: 12
+- C: undefined
+- D: NaN
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+```text
+A: 3
+```
+
+- Khi thưc hiện phép cộng `obj.a + obj.b`, JavaScript sẽ chuyển đổi `obj.a` và `obj.b` thành số.
+- Đối với `obj.a`, giá trị là 1, không cần chuyển đổi. Đối với `obj.b`, JavaScript sẽ gọi phương thức `valueOf` của
+  object `obj.b`, trả về giá trị 2, và kết quả của phép cộng là 3.
+
+> Nếu `valueOf` không được định nghĩa, JavaScript sẽ thử chuyển đổi object thành chuỗi bằng phương thức `toString`.
+>
+> Nếu cả `valueOf` và `toString` trả về giá trị không phải là số, kết quả sẽ là `NaN`.
+
 
 </p>
 </details>
