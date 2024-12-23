@@ -850,14 +850,11 @@ Promise.resolve().then(() => console.log('Microtask 2'));
 
 ```
 
-- Khi `Promise.resolve().then()` được gọi, microtask 1 và microtask 2 sẽ được thêm vào `microtask
-- queue` với callback tương ứng.
+- Khi `Promise.resolve().then()` được gọi, microtask 1 và microtask 2 sẽ được thêm vào `microtask queue` với callback tương ứng.
 - Khi `call stack` trống, microtask 1 sẽ được thêm vào `call stack` để thực thi.
-- Callback sẽ in ra `Microtask 1` trên console.
-- Callback sẽ được loại bỏ khỏi `call stack`.
+- Callback sẽ in ra `Microtask 1` trên console.Sau đó sẽ được loại bỏ khỏi `call stack`.
 - Khi `call stack` trống, microtask 2 sẽ được thêm vào `call stack` để thực thi.
-- Callback sẽ in ra `Microtask 2` trên console.
-- Callback sẽ được loại bỏ khỏi `call stack`.
+- Callback sẽ in ra `Microtask 2` trên console. Sau đó sẽ được loại bỏ khỏi `call stack`.
 - `call stack` trống.
 - `microtask queue` trống.
 - Quá trình hoàn tất.
